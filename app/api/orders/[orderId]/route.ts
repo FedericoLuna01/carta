@@ -13,6 +13,15 @@ export async function GET(req: Request, { params }: { params: { orderId: string 
       where: {
         id: Number(params.orderId)
       },
+      include: {
+        products: {
+          include: {
+            extras: true,
+            size: true,
+            product: true
+          }
+        }
+      }
     })
 
     return NextResponse.json(order)

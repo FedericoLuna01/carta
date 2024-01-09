@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 import { type FullOrderItem } from "@/types/types"
 import { type OrderItemExtra } from "@prisma/client"
+import { pusherServer } from "@/lib/pusher"
 
 export async function POST (req: Request) {
   const body = await req.json()
@@ -48,6 +49,8 @@ export async function POST (req: Request) {
         })
       })
     })
+
+    pusherServer.trigger("orders", "new-order", order)
 
     revalidatePath("(admin)/admin/ordenes", 'page')
 

@@ -1,10 +1,9 @@
 import { unstable_noStore as noStore } from "next/cache"
 
-import { DataTable } from "@/components/ui/data-table"
 import Heading from "@/components/ui/heading"
 import { Separator } from "@/components/ui/separator"
 import prismadb from "@/lib/prismadb"
-import { columns } from "./components/columns"
+import OrderClient from "./orderClient"
 
 const OrdersPage = async () => {
   noStore()
@@ -35,12 +34,11 @@ const OrdersPage = async () => {
         />
       </div>
       <Separator />
-      <DataTable
+      <OrderClient
+        // @ts-ignore
         data={orders}
-        columns={columns}
-        visibility
-        order
       />
+
     </section>
   )
 }
