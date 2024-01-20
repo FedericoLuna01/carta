@@ -28,6 +28,13 @@ export interface FullOrderItem extends OrderItem {
   extras: OrderItemExtra[] | null
 }
 
+export enum PayMethod {
+  // eslint-disable-next-line no-unused-vars
+  CASH = 'cash',
+  // eslint-disable-next-line no-unused-vars
+  MERCADOPAGO = 'mercadopago'
+}
+
 export type User = {
   name: string;
   phone: string

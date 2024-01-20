@@ -19,12 +19,11 @@ export function getIsOpen(userSettings: UserSettings | null) {
   const nightCloseTime = getDate(userSettings.nightCloseTime)
 
   if (nightCloseTime < nightOpenTime) {
-    // Seteo el dia de ayer
-    nightOpenTime.setDate(nightOpenTime.getDate() - 1)
+    // Seteo el cierre para el día siguiente
+    nightCloseTime.setDate(nightCloseTime.getDate() + 1)
     if(today <= nightCloseTime && today >= nightOpenTime) {
       return true
     }
-
   }
 
   if (today <= nightCloseTime && today >= nightOpenTime) {
