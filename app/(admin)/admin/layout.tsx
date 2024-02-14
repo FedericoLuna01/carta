@@ -2,45 +2,37 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../../globals.css'
 
-import AdminNavbar from "@/components/admin-navbar"
-import Footer from '@/components/footer'
 import { ToasterProvider } from '@/providers/toaster-provider'
 import ModalsProviders from '@/providers/modals-provider'
+import AdminNav from '@/components/admin-nav'
+import MobileAdminNavbar from '@/components/mobile-admin-navbar'
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: 'Carta - Admin',
-  description: 'En esta sección podrás administrar tu carta.',
 }
 
 const AdminLayout = ({ children }: { children: React.ReactNode}) => {
   return (
     <html lang="es">
       <body
-        className={`${inter.className} grid min-h-screen grid-rows-[60px,1fr,60px] `}
-        style={{
-          backgroundImage: 'url(./background.webp)',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundAttachment: 'fixed',
-        }}
+        className={`${inter.className} min-h-screen`}
       >
         <ToasterProvider />
         <ModalsProviders />
-        <div />
-        <AdminNavbar />
-        <main
-          className="backdrop-blur-sm pt-4"
+        <div
+          className='sticky top-0 z-50 bg-white shadow-md md:hidden'
         >
-          <div
-            className="container"
+          <MobileAdminNavbar />
+        </div>
+        <AdminNav>
+          <main
+            className="w-full p-5"
           >
             {children}
-          </div>
-        </main>
-        <Footer />
+          </main>
+        </AdminNav>
       </body>
     </html>
   )

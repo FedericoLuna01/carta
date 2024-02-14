@@ -1,3 +1,5 @@
+import { Layers, Pizza, Settings, ShoppingCart, Tag, Tags } from "lucide-react"
+
 export const typeOptions = [
   {
     label: "Retiro",
@@ -23,35 +25,47 @@ export const statusOptions = [
   { label: 'Cancelado', value: 'CANCELED' }
 ]
 
-export const NavItems = [
+export const navItems = [
   {
     id: 1,
     label: 'Mi cuenta',
+    icon: Settings,
     href: '/admin',
+    variant: 'default'
   },
   {
     id: 2,
     label: 'Productos',
+    icon: Pizza,
     href: '/admin/productos',
+    variant: 'ghost'
   },
   {
     id: 3,
     label: 'Categorías',
+    icon: Tag,
     href: '/admin/categorias',
-  },
-  {
-    id: 6,
-    label: 'Subcategorías',
-    href: '/admin/subcategorias'
+    variant: 'ghost'
   },
   {
     id: 4,
-    label: 'Órdenes',
-    href: '/admin/ordenes',
+    label: 'Subcategorías',
+    icon: Tags,
+    href: '/admin/subcategorias',
+    variant: 'ghost'
   },
   {
     id: 5,
+    label: 'Órdenes',
+    icon: ShoppingCart,
+    href: '/admin/ordenes',
+    variant: 'ghost'
+  },
+  {
+    id: 6,
     label: 'Reordenar',
+    icon: Layers,
     href: '/admin/reordenar',
+    variant: 'ghost'
   },
 ]

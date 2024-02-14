@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { NavItems } from "@/data/data"
+import { navItems } from "@/data/data"
 import LogoutButton from "./ui/logout-button"
 
 const MobileAdminNavbar = () => {
@@ -42,7 +42,7 @@ const MobileAdminNavbar = () => {
           className="flex items-center justify-between flex-col gap-2"
         >
           {
-            NavItems.map((item) => (
+            navItems.map((item) => (
               <li
                 key={item.id}
               >
@@ -62,7 +62,7 @@ const MobileAdminNavbar = () => {
             ))
           }
           <li>
-            <LogoutButton />
+            {/* <LogoutButton /> */}
           </li>
         </ul>
       </SheetContent>

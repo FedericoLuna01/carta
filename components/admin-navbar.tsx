@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import LogoutButton from "./ui/logout-button"
 import MobileAdminNavbar from "./mobile-admin-navbar"
-import { NavItems } from "@/data/data"
+import { navItems } from "@/data/data"
 
 const AdminNavbar = () => {
   return (
@@ -25,7 +25,7 @@ const AdminNavbar = () => {
             className="hidden md:flex items-center justify-between flex-row gap-2"
           >
             {
-              NavItems.map((item) => (
+              navItems.map((item) => (
                 <li
                   key={item.id}
                 >
